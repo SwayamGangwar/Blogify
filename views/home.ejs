@@ -7,20 +7,21 @@
 <body>
     <%- include("./partials/nav") %>
         <div class="container mt-3">
-            <div class="row row-cols-4">
-            <% blogs.forEach(blog => { %>
-                <div class="col">
-                <div class="card col" style="width: 18rem;">
-                    <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="" >
-                  <div class="card-body">
-                    <h5 class="card-title"><%= blog.title %></h5>
-                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
-                  </div>
+    <div class="row g-4">  <!-- g-4 = equal gap between cards -->
+        <% blogs.forEach(blog => { %>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+                <div class="card flex-fill text-center">
+                    <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="cover image">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= blog.title %></h5>
+                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                    </div>
                 </div>
-                </div>
-            <% }) %>
             </div>
-        </div>
+        <% }) %>
+    </div>
+</div>
+
     
     <%- include("./partials/scripts") %>
 </body>
